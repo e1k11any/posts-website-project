@@ -1,0 +1,59 @@
+<div *ngIf="user$ | async as user" class="container my-5">
+  <div class="profile-card">
+    <div
+      class="profile-banner"
+      [style.backgroundImage]="'url(https://picsum.photos/seed/' + 100 + '/1200/400)'"
+    ></div>
+
+    <div class="p-4">
+      <div class="d-flex flex-column align-items-center text-center">
+        <img [src]="user.image" class="profile-picture" alt="User Profile Picture" />
+
+        <h2 class="fw-bold mt-3 mb-1">{{ user.firstName }} {{ user.lastName }}</h2>
+        <p class="text-muted">@{{ user.username }}</p>
+        <p class="text-muted mt-n2">{{ user.email }}</p>
+      </div>
+
+      <div class="d-flex justify-content-center gap-4 my-4">
+        <div class="text-center">
+          <h4 class="fw-bold">128</h4>
+          <small class="text-muted">Posts</small>
+        </div>
+        <div class="text-center">
+          <h4 class="fw-bold">1.2k</h4>
+          <small class="text-muted">Followers</small>
+        </div>
+        <div class="text-center">
+          <h4 class="fw-bold">340</h4>
+          <small class="text-muted">Following</small>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="px-md-5">
+        <h5 class="fw-bold my-4 text-center text-muted">Account Details</h5>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <div class="detail-item d-flex align-items-center">
+              <i class="bi bi-person-badge-fill me-3"></i>
+              <div>
+                <small class="text-muted">User ID</small>
+                <p class="fw-bold mb-0">#{{ user.id }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="detail-item d-flex align-items-center">
+              <i class="bi bi-gender-ambiguous me-3"></i>
+              <div>
+                <small class="text-muted">Gender</small>
+                <p class="fw-bold mb-0 text-capitalize">{{ user.gender }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

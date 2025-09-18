@@ -1,0 +1,43 @@
+<div class="hero-section text-center p-5 mb-5 shadow-lg">
+  <!-- <h1 class="display-4 fw-bold">Explore Our World</h1>
+  <p class="lead col-lg-8 mx-auto">
+    Discover stories, ideas, and insights from our amazing community of writers.
+  </p> -->
+  <a
+    *ngIf="isLoggedIn$ | async"
+    routerLink="/post/add"
+    class="btn create-post-btn btn-lg shadow-sm mt-3"
+  >
+    <i class="bi bi-pencil-square me-2"></i>Create New Post
+  </a>
+</div>
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+  <div *ngFor="let post of posts" class="col">
+    <a [routerLink]="['/post', post.id]" class="text-decoration-none">
+      <div class="card h-100 post-card shadow-sm">
+        <img
+          [src]="'https://picsum.photos/seed/' + post.id + '/600/400'"
+          class="card-img-top"
+          alt="Blog post image"
+        />
+
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title fw-bold text-dark mb-3">{{ post.title }}</h5>
+          <p class="card-text text-secondary flex-grow-1">{{ post.body | slice : 0 : 100 }}...</p>
+        </div>
+
+        <div
+          class="card-footer bg-white border-0 pt-0 d-flex justify-content-between align-items-center"
+        >
+          <div class="text-muted small">
+            <i class="bi bi-person-circle me-1"></i> User {{ post.userId }}
+          </div>
+          <span class="fw-bold" style="color: #764ba2"
+            >Read More <i class="bi bi-arrow-right-short"></i
+          ></span>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>

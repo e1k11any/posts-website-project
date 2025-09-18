@@ -1,1 +1,49 @@
-/* You can add global styles to this file, and also import other style files */
+/* src/styles.css */
+
+/* Use a more professional color palette */
+:root {
+  --bs-primary: #0d6efd; /* Default Bootstrap blue for main actions */
+  --bs-secondary: #6c757d; /* Default Bootstrap gray */
+  --bs-dark: #212529;
+  --app-bg-color: #f4f7f9; /* A soft, light gray for the background */
+  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --card-shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--app-bg-color);
+  color: #333;
+}
+
+/* Add a subtle shadow to the navbar to lift it off the page */
+.navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+/* Style for our main content cards */
+.card {
+  border: none;
+  border-radius: 0.75rem;
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+/* Custom button styling */
+.btn {
+  border-radius: 0.5rem;
+  font-weight: 500;
+  padding: 0.6rem 1.2rem;
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--bs-primary);
+  --bs-btn-border-color: var(--bs-primary);
+  --bs-btn-hover-bg: #0b5ed7;
+  --bs-btn-hover-border-color: #0a58ca;
+}

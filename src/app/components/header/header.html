@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" routerLink="/">POSTS.IO</a>
+
+    <div class="d-flex align-items-center">
+      <!-- Show Login/Register if NOT logged in -->
+      <ng-container *ngIf="!(isLoggedIn$ | async); else loggedInView">
+        <a routerLink="/login" class="btn btn-outline-light me-2">Login</a>
+        <a routerLink="/register" class="btn btn-light">Register</a>
+      </ng-container>
+
+      <!-- Show User Info if LOGGED in -->
+      <ng-template #loggedInView>
+        <div *ngIf="currentUser$ | async as user" class="dropdown">
+          <a
+            href="#"
+            class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <img [src]="user.image" alt="" width="32" height="32" class="rounded-circle me-2" />
+            <strong>{{ user.username }}</strong>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+            <li><a class="dropdown-item" routerLink="/profile">Profile</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><button class="dropdown-item" (click)="onLogout()">Sign out</button></li>
+          </ul>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</nav>

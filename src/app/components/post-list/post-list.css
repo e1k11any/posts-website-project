@@ -1,0 +1,35 @@
+.post-card {
+  border: none;
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden; /* Ensures the image corners are rounded */
+}
+
+.post-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 1rem 3rem rgba(31, 45, 61, 0.125) !important;
+}
+
+.post-card .card-img-top {
+  height: 200px;
+  object-fit: cover; /* Prevents images from stretching */
+}
+
+.hero-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 1rem;
+}
+
+.create-post-btn {
+  background-color: #ffffff;
+  color: #6a11cb;
+  font-weight: bold;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.create-post-btn:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.05);
+}
